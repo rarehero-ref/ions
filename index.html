@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT MarketPlace | Ion</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <button class="header-close-btn" id="close-app-btn">X Yopish</button>
+        <div class="user-balance">
+            <span class="ion-icon">💎</span> <span id="user-ion-balance">0.00</span>
+            <button class="balance-details-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+            </button>
+            <button class="scan-qr-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <line x1="17" y1="17" x2="17" y2="17"></line>
+                    <line x1="12" y1="12" x2="12" y2="12"></line>
+                </svg>
+            </button>
+            <button class="settings-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0-.33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82-.33H9A1.65 1.65 0 0 0 10 3v-.09A2 2 0 0 1 12 1a2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V15a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51-1z"></path>
+                </svg>
+            </button>
+            <button class="cart-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="promo-banner">
+            <img src="https://via.placeholder.com/600x120/8A2BE2/FFFFFF?text=Pepe+Boom+-+Rules+the+board!" alt="Promo Banner">
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <div class="tabs-container">
+        <button class="tab-btn active" data-tab="market">Market</button>
+        <button class="tab-btn" data-tab="stickers">Stickers</button>
+        <button class="tab-btn" data-tab="in-game">In-Game</button>
+        <button class="tab-btn" data-tab="my-gifts">My Gifts</button>
+        <button class="tab-btn" data-tab="giveaways">Giveaways</button>
+        <button class="tab-btn" data-tab="feed">Feed</button>
+    </div>
+
+    <div class="main-content">
+        <div id="market" class="tab-content active">
+            <div class="search-bar">
+                <input type="text" placeholder="Search by gifts or trait...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" y1="21" x2="4" y2="14"></line>
+                        <line x1="4" y1="10" x2="4" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12" y2="3"></line>
+                        <line x1="20" y1="21" x2="20" y2="16"></line>
+                        <line x1="20" y1="12" x2="20" y2="3"></line>
+                        <line x1="1" y1="14" x2="7" y2="14"></line>
+                        <line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="17" y1="16" x2="23" y2="16"></line>
+                    </svg>
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                    </svg>
+                </button>
+                <button class="filter-pill active">Pre-market</button>
+                <button class="filter-pill dropdown">NFTs <span class="arrow-down">&#9660;</span></button>
+                <button class="filter-pill dropdown">Model <span class="arrow-down">&#9660;</span></button>
+                <button class="filter-pill dropdown">Backdrop <span class="arrow-down">&#9660;</span></button>
+            </div>
+
+            <div id="nft-market-grid" class="nft-grid">
+                </div>
+        </div>
+
+        <div id="my-gifts" class="tab-content">
+            <h2>Mening NFT Giftlarim</h2>
+            <div id="my-nfts-list" class="nft-grid">
+                </div>
+            <div class="profile-actions">
+                <button id="add-nft-ad-btn">E'lon Qo'shish</button>
+                <button id="withdraw-nft-btn">NFT Chiqarib Olish</button>
+                <button id="auction-btn">Auksion</button>
+            </div>
+        </div>
+
+        <div id="profile-section" class="tab-content active">
+            <h2>Profilim</h2>
+            <div class="balance-card">
+                <span class="ion-icon large">💎</span>
+                <span id="profile-ion-balance" class="profile-balance-text">0.00 ION</span>
+            </div>
+            <div class="profile-buttons">
+                <button id="deposit-ion-btn">Pul Kiritish (ION)</button>
+                <button id="withdraw-ion-btn">Pul Yechish (ION)</button>
+            </div>
+
+            <div id="deposit-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>ION to'ldirish</h3>
+                    <p>1 ION = <span id="ion-exchange-rate">52 000</span> UZS</p>
+                    <p>To'lovni quyidagi karta raqamiga amalga oshiring:</p>
+                    <p class="card-info">Karta raqami: <strong>9860196617170903</strong></p>
+                    <p class="card-info">Ism Familya: <strong>Sardor Jorayev</strong></p>
+                    <button id="confirm-payment-btn">To'lov qildim</button>
+                </div>
+            </div>
+
+            <div id="payment-receipt-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Chekni kiriting</h3>
+                    <input type="text" id="receipt-input" placeholder="To'lov chekini ID'sini kiriting">
+                    <button id="send-receipt-btn">Yuborish</button>
+                </div>
+            </div>
+
+            <div id="withdraw-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>ION yechib olish</h3>
+                    <p>1 ION = <span id="ion-withdrawal-rate">50 000</span> UZS</p>
+                    <p>Mavjud ION: <span id="available-ion-for-withdrawal">0.00</span></p>
+                    <input type="number" id="withdraw-amount-input" placeholder="Yechmoqchi bo'lgan ION miqdorini kiriting" min="0.01" step="0.01">
+                    <button id="request-withdrawal-btn">Yechish So'rovini Yuborish</button>
+                </div>
+            </div>
+
+            <div id="card-input-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Karta raqamingizni kiriting</h3>
+                    <input type="text" id="card-number-input" placeholder="Karta raqami (16 xona)">
+                    <button id="send-card-btn">Yuborish</button>
+                </div>
+            </div>
+
+            <div id="add-ad-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>E'lon Qo'shish</h3>
+                    <p>NFT Giftni quyidagi adminka yuboring: <a href="https://t.me/TgMenejer" target="_blank">@TgMenejer</a></p>
+                    <button id="sent-nft-to-admin-btn">NFTni yubordim</button>
+                </div>
+            </div>
+
+            <div id="set-nft-price-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>NFT Narxini Kiriting</h3>
+                    <p id="nft-name-for-price"></p>
+                    <input type="number" id="nft-price-input" placeholder="Narx (IONda, misol: 1.5)" min="0.01" step="0.01">
+                    <button id="confirm-nft-price-btn">Narxni Tasdiqlash</button>
+                </div>
+            </div>
+
+            <div id="my-nft-actions-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3 id="my-nft-action-title"></h3>
+                    <p id="my-nft-action-description"></p>
+                    <button id="relist-nft-btn">Qayta E'longa Joylash</button>
+                    <button id="cancel-ad-btn">E'lonni Bekor Qilish</button>
+                    <button id="retrieve-nft-btn">NFTni Chiqarib Olish</button>
+                </div>
+            </div>
+
+            <div id="select-retrieve-nft-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Qayta Chiqarib Olish Uchun NFTni Tanlang</h3>
+                    <ul id="retrievable-nft-list">
+                        </ul>
+                </div>
+            </div>
+
+            <div id="auction-selection-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h3>Auktsionga Qo'yish Uchun NFTni Tanlang</h3>
+                    <ul id="auctionable-nft-list">
+                        </ul>
+                </div>
+            </div>
+        </div>
+
+    </div> <div class="bottom-nav">
+        <button class="nav-btn active" data-tab-target="market">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+        </button>
+        <button class="nav-btn" data-tab-target="profile-section">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Profil</span>
+        </button>
+        <button class="nav-btn" data-tab-target="my-gifts">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                <rect x="2" y="7" width="20" height="5"></rect>
+                <line x1="12" y1="22" x2="12" y2="7"></line>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+            </svg>
+            <span>Giftlarim</span>
+        </button>
+    </div>
+
+</body>
+  </html>
